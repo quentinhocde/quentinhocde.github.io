@@ -179,6 +179,7 @@ class App {
             
             if(event.keyCode === 32 && this.int > 18) {
                 this.change(parseInt(Math.random() * 7), false);
+                this.changeShape();
             }
         });
         
@@ -234,6 +235,7 @@ class App {
             this.prismWrapper = new THREE.Mesh(this.monolithGeometry, this.prismMaterial);
 
             this.prism = new THREE.Object3D();
+            this.prism.name = 'prism';
 
 
             let rotationTimeline = new TimelineMax({repeat: -1});
@@ -397,6 +399,7 @@ class App {
         this.crazyPrismWrapper = new THREE.Mesh(this.crazyGeometry, this.crazyMaterial);
 
         this.crazyPrism = new THREE.Object3D();
+        this.crazyPrism.name = 'crazyPrism';
 
         this.crazyPrism.add(this.crazyPrismWrapper);
         this.crazyPrismWrapper.scale.set(6,6,6);
@@ -718,7 +721,7 @@ class App {
     audio() {
         let src = '../audio/intro_return_cut.mp3';
         this.player = new Audio();
-        this.player.loop = true;
+        this.player.playsinline = true;
         this.player.crossOrigin = 'Anonymous'
         this.player.src = src;
 
@@ -806,8 +809,6 @@ class App {
             location.reload();
         }
 
-        console.log(this.int);
-
         let color = new THREE.Color(`rgba(${parseInt(Math.random()*255)},${parseInt(Math.random()*255)},${parseInt(Math.random()*255)})`);
         this.prismWrapper.material.color = color;
         this.flowerWrapper.material.color = color;
@@ -844,9 +845,9 @@ class App {
                 //     zoom: parseInt(Math.random() * 0.5 ) + 0.5,
                 //     ease: Power0.easeNone
                 // });
-                let rand1 = Math.random() * 700 + 300;
-                let rand2 = Math.random() * 700 + 300;
-                let rand3 = Math.random() * 700 + 300;
+                let rand1 = Math.random() * 1500 - 750;
+                let rand2 = Math.random() * 1500 - 750;
+                let rand3 = Math.random() * 1500 - 750;
 
                 let tl = new TimelineMax();
                 // tl.to(this.camera.position,0, {
@@ -854,10 +855,11 @@ class App {
                 //     y: rand2,
                 //     z: rand3
                 // });
-                tl.to(this.camera.position,Math.random()*2 + 1, {
+                tl.to(this.camera.position,2, {
                     x: rand3,
                     y: rand1,
-                    z: rand2
+                    z: rand2,
+                    ease: Ease.power2EaseInOut
                 });
                 // tl.to(this.camera.position,0, {
                 //     x: 750,
@@ -885,15 +887,15 @@ class App {
                 }
             }
 
-            this.int++;
 
             if(this.int === 18) {
                 this.scene.remove(this.flower);
                 id = 0;
+                this.html.classList.add('is-controllable');
             }
 
 
-            if(this.int === 68) {
+            if(this.int === 67) {
                 this.scene.add(this.flower);
                 this.reinitFlower();
 
@@ -901,12 +903,18 @@ class App {
                 this.scene.remove(this.crazyPrism);
                 this.scene.remove(this.wiredPrism);
 
+                this.html.classList.remove('is-controllable');
+
+
             }
+
+            this.int++;
 
             if(this.int >= 64) {
                 this.offset = 1;
                 return false;
             }
+
 
             if(this.int < 18) return false;
 
@@ -931,72 +939,78 @@ class App {
                 }
             }
 
-        }
+            switch(id) {
+
+                case 0 :
+
+                    this.scene.add(this.wiredPrism);
+
+                    this.scene.add(this.crazyPrism);
+                    this.scene.remove(this.prism);
 
 
+                    break;
 
-        switch(id) {
+                case 1 :
 
-            case 0 :
+                    this.scene.add(this.wiredPrism);
 
-                this.scene.add(this.wiredPrism);
+                    this.scene.add(this.prism);
+                    this.scene.remove(this.crazyPrism);
 
-                this.scene.add(this.crazyPrism);
-                this.scene.remove(this.prism);
+                    break;
 
+                case 2 :
 
-                break;
+                    this.scene.add(this.wiredPrism);
 
-            case 1 :
+                    break;
 
-                this.scene.add(this.wiredPrism);
+                case 3 :
+                    this.scene.remove(this.wiredPrism);
 
-                this.scene.add(this.prism);
-                this.scene.remove(this.crazyPrism);
+                    break;
 
-                break;
+                case 4 :
 
-            case 2 :
+                    this.scene.add(this.crazyPrism);
+                    this.scene.remove(this.prism);
 
-                this.scene.add(this.wiredPrism);
+                    break;
 
-                break;
+                case 5 :
 
-            case 3 :
-                this.scene.remove(this.wiredPrism);
+                    this.scene.add(this.prism);
+                    this.scene.remove(this.crazyPrism);
 
-                break;
-
-            case 4 :
-
-                this.scene.add(this.crazyPrism);
-                this.scene.remove(this.prism);
-
-                break;
-
-            case 5 :
-
-                this.scene.add(this.prism);
-                this.scene.remove(this.crazyPrism);
-
-                if(!this.drop){
-                    for (var i = this.backgroundScaleTimelines.length - 1; i >= 0; i--) {
-                        this.backgroundScaleTimelines[i].reverse();
+                    if(!this.drop){
+                        for (var i = this.backgroundScaleTimelines.length - 1; i >= 0; i--) {
+                            this.backgroundScaleTimelines[i].reverse();
+                        }
                     }
-                }
 
-            case 6 :
+                case 6 :
 
-                if(!this.drop){
-                    this.offset = parseInt(Math.random() * 10);
-                }
-                break;
+                    if(!this.drop){
+                        this.offset = parseInt(Math.random() * 10);
+                    }
+                    break;
 
-            default :
+                default :
+
+            }
 
         }
+    }
 
-
+    changeShape() {
+        if(this.scene.getObjectByName('prism')) {
+            this.scene.add(this.crazyPrism);
+            this.scene.remove(this.prism);
+        } else {
+            this.scene.add(this.prism);
+            this.scene.remove(this.crazyPrism);
+        }
     }
 
     gui() {
