@@ -1,0 +1,212 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@keyframes backgroundAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    background-color: #dddddd; }
+  100% {
+    background-color: white;
+    transform: translate(-50%, -50%) scale(1); } }
+
+body, html {
+  overflow: hidden; }
+
+body {
+  font-family: 'Roboto', sans-serif; }
+
+#gl {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0; }
+
+.circle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1; }
+  .circle::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150vw;
+    height: 150vw;
+    border-radius: 50%;
+    background-color: black;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1); }
+    html.drop .circle::before {
+      transform: translate(-50%, -50%) scale(1); }
+
+.c-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  width: 1200px; }
+
+.c-screen_title {
+  font-family: 'Anton';
+  font-size: 160px;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 60px; }
+  .c-screen_title span {
+    display: inline-block;
+    margin-left: -4px;
+    min-width: 0.3em;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); }
+    .c-screen_title span:nth-child(odd) {
+      transform: translateY(100vh); }
+    .c-screen_title span:nth-child(even) {
+      transform: translateY(-100vh); }
+    .dom-is-loaded .c-screen_title span {
+      transform: none; }
+      .dom-is-loaded .c-screen_title span:nth-child(1) {
+        transition-delay: 1.06s; }
+      .dom-is-loaded .c-screen_title span:nth-child(2) {
+        transition-delay: 1.12s; }
+      .dom-is-loaded .c-screen_title span:nth-child(3) {
+        transition-delay: 1.18s; }
+      .dom-is-loaded .c-screen_title span:nth-child(4) {
+        transition-delay: 1.24s; }
+      .dom-is-loaded .c-screen_title span:nth-child(5) {
+        transition-delay: 1.3s; }
+      .dom-is-loaded .c-screen_title span:nth-child(6) {
+        transition-delay: 1.36s; }
+      .dom-is-loaded .c-screen_title span:nth-child(7) {
+        transition-delay: 1.42s; }
+      .dom-is-loaded .c-screen_title span:nth-child(8) {
+        transition-delay: 1.48s; }
+      .dom-is-loaded .c-screen_title span:nth-child(9) {
+        transition-delay: 1.54s; }
+      .dom-is-loaded .c-screen_title span:nth-child(10) {
+        transition-delay: 1.6s; }
+    .experiment-is-launched .c-screen_title span:nth-child(odd) {
+      transform: translateY(100vh); }
+    .experiment-is-launched .c-screen_title span:nth-child(even) {
+      transform: translateY(-100vh); }
+    .experiment-is-launched .c-screen_title span:nth-child(1) {
+      transition-delay: 0.48s; }
+    .experiment-is-launched .c-screen_title span:nth-child(2) {
+      transition-delay: 0.42s; }
+    .experiment-is-launched .c-screen_title span:nth-child(3) {
+      transition-delay: 0.36s; }
+    .experiment-is-launched .c-screen_title span:nth-child(4) {
+      transition-delay: 0.3s; }
+    .experiment-is-launched .c-screen_title span:nth-child(5) {
+      transition-delay: 0.24s; }
+    .experiment-is-launched .c-screen_title span:nth-child(6) {
+      transition-delay: 0.18s; }
+    .experiment-is-launched .c-screen_title span:nth-child(7) {
+      transition-delay: 0.12s; }
+    .experiment-is-launched .c-screen_title span:nth-child(8) {
+      transition-delay: 0.06s; }
+    .experiment-is-launched .c-screen_title span:nth-child(9) {
+      transition-delay: 0s; }
+
+.c-screen_button {
+  position: relative;
+  font-size: 12px;
+  padding: 20px 35px;
+  color: white;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 30px;
+  overflow: hidden;
+  display: inline-block;
+  z-index: 1;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+  transform: translateY(100vh);
+  outline: 0; }
+  .c-screen_button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to bottom right, blue, purple) 300px 300px;
+    transition: transform 1s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .c-screen_button:hover {
+    cursor: pointer; }
+    .c-screen_button:hover::before {
+      transform: translate(-50%, -50%) rotate(90deg); }
+  .dom-is-loaded .c-screen_button {
+    transform: none;
+    transition-delay: 1.9s; }
+  .experiment-is-launched .c-screen_button {
+    transform: translateY(100vh);
+    transition-delay: 0s; }
+
+.c-screen_button_label {
+  position: relative;
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.1s; }
+  .c-screen_button:hover .c-screen_button_label {
+    transform: translateY(-60px);
+    transition-delay: 0s; }
+
+.c-screen_button_hover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, 45px);
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .c-screen_button:hover .c-screen_button_hover {
+    transform: translate(-50%, -50%);
+    transition-delay: 0.1s; }

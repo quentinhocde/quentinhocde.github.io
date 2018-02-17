@@ -1,0 +1,199 @@
+// font-family: 'Anton';
+// font-family: 'Roboto', sans-serif;
+
+$Power2EaseOut: cubic-bezier(0.215, 0.61, 0.355, 1);
+$Power2EaseInOut: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+
+@keyframes backgroundAnimation {
+	0% {
+		transform: translate(-50%, -50%) scale(0);
+		background-color: #dddddd;
+	}
+	100% {
+		background-color: white;
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+}
+
+body, html{
+	overflow:hidden;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+#gl{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+
+}
+
+
+.circle {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: -1;
+
+	&::before {
+		content:"";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 150vw;
+		height: 150vw;
+		border-radius: 50%;
+		background-color: black;
+		
+		transform: translate(-50%, -50%) scale(0);
+		transition: transform 1s $Power2EaseInOut;
+
+		html.drop & {
+			transform: translate(-50%, -50%) scale(1);
+
+		}
+
+	}
+}
+
+.c-screen {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	text-align: center;
+	width: 1200px;
+}
+
+.c-screen_title {
+	font-family: 'Anton';
+	font-size: 160px;
+	text-transform: uppercase;
+	opacity: 0.8;
+	margin-bottom: 60px;
+	// overflow: hidden;
+
+	span {
+		display: inline-block;
+		margin-left: -4px;
+		min-width: 0.3em;
+		
+		transition: transform 1.2s $Power2EaseInOut;
+		
+		&:nth-child(odd) {
+			transform: translateY(100vh);
+		}
+		&:nth-child(even) {
+			transform: translateY(-100vh);
+		}
+
+		.dom-is-loaded & {
+			transform: none;
+
+			@for $i from 1 through 10 {
+				&:nth-child(#{$i}){
+					transition-delay: 1 + $i * 0.06s;
+				}
+			}
+		}
+
+		.experiment-is-launched & {
+			&:nth-child(odd) {
+				transform: translateY(100vh);
+			}
+			&:nth-child(even) {
+				transform: translateY(-100vh);
+			}
+
+			@for $i from 1 through 9 {
+				&:nth-child(#{$i}){
+					transition-delay: (9-$i) * 0.06s;
+				}
+			}
+		}
+	}
+}
+
+.c-screen_button {
+	position: relative;
+	font-size: 12px;
+	padding: 20px 35px;
+	color: white;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	border-radius: 30px;
+	overflow: hidden;
+	display: inline-block;
+	z-index: 1;
+	// border: 5px solid transparent;
+	transition: transform 1s $Power2EaseInOut;
+	transform: translateY(100vh);
+	outline: 0;
+
+	&::before {
+		content:'';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 300px;
+		height: 300px;
+		z-index: -1;
+		transform: translate(-50%, -50%);
+		background: linear-gradient(to bottom right, blue, purple) 300px 300px;
+		transition: transform 1s $Power2EaseOut;
+
+	}
+
+
+	&:hover {
+		cursor: pointer;
+
+		&::before {
+			transform: translate(-50%,-50%) rotate(90deg);
+		}
+	}
+
+	.dom-is-loaded & {
+		transform: none;
+		transition-delay: 1.9s;
+	}
+
+	.experiment-is-launched & {
+		transform: translateY(100vh);
+		transition-delay: 0s;
+	}
+}
+
+.c-screen_button_label {
+	position: relative;
+	display: block;
+	transition: transform 0.3s $Power2EaseOut 0.1s;
+
+	.c-screen_button:hover & {
+		transform: translateY(-60px);
+		transition-delay: 0s;
+	}
+}
+
+.c-screen_button_hover {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	transform: translate(-50%,45px);
+	transition: transform 0.3s $Power2EaseOut;
+
+	.c-screen_button:hover & {
+		transform: translate(-50%, -50%);
+		transition-delay: 0.1s;
+	}
+
+}
