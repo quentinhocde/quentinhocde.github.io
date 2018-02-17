@@ -845,9 +845,9 @@ class App {
                 //     zoom: parseInt(Math.random() * 0.5 ) + 0.5,
                 //     ease: Power0.easeNone
                 // });
-                let rand1 = Math.random() * 1500 - 750;
-                let rand2 = Math.random() * 1500 - 750;
-                let rand3 = Math.random() * 1500 - 750;
+                let rand1 = Math.random() * 600 + 300;
+                let rand2 = Math.random() * 600 + 300;
+                let rand3 = Math.random() * 600 + 300;
 
                 let tl = new TimelineMax();
                 // tl.to(this.camera.position,0, {

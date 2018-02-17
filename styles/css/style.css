@@ -97,11 +97,13 @@ body {
   width: 1200px; }
 
 .c-screen_title {
-  font-family: 'Anton';
+  font-family: 'Oswald';
   font-size: 160px;
   text-transform: uppercase;
-  opacity: 0.8;
-  margin-bottom: 60px; }
+  opacity: 0.75;
+  margin-bottom: 45px;
+  color: black;
+  letter-spacing: 0.01em; }
   .c-screen_title span {
     display: inline-block;
     margin-left: -4px;
@@ -159,7 +161,7 @@ body {
 .c-screen_button {
   position: relative;
   font-size: 12px;
-  padding: 20px 35px;
+  padding: 20px 40px;
   color: white;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -210,6 +212,22 @@ body {
   .c-screen_button:hover .c-screen_button_hover {
     transform: translate(-50%, -50%);
     transition-delay: 0.1s; }
+
+.c-screen_infos {
+  padding: 10px 0;
+  font-style: italic;
+  font-size: 12px;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.6s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .dom-is-loaded .c-screen_infos {
+    transform: none;
+    opacity: 1;
+    transition-delay: 3s; }
+  .experiment-is-launched .c-screen_infos {
+    transform: translateY(100%);
+    opacity: 0;
+    transition-delay: 0s; }
 
 .c-control {
   position: absolute;
