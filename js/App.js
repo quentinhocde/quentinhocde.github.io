@@ -26,7 +26,6 @@ class App {
         this.controls;
 
         this.html = document.getElementsByTagName('html')[0];
-        this.html.classList.add('dom-is-loaded');
 
         this.mouse = {
             x: 0,
@@ -36,7 +35,11 @@ class App {
         this.player = document.getElementById('js-audio');
         this.player.crossOrigin = 'Anonymous';
 
-        this.init();
+
+        setTimeout(() => {
+            this.html.classList.add('dom-is-loaded');
+            this.init();
+        },1000);
         
         // this.gui();
 
