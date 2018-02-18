@@ -126,25 +126,25 @@ body {
     .dom-is-loaded .c-screen_title span {
       transform: none; }
       .dom-is-loaded .c-screen_title span:nth-child(1) {
-        transition-delay: 2.06s; }
+        transition-delay: 1.06s; }
       .dom-is-loaded .c-screen_title span:nth-child(2) {
-        transition-delay: 2.12s; }
+        transition-delay: 1.12s; }
       .dom-is-loaded .c-screen_title span:nth-child(3) {
-        transition-delay: 2.18s; }
+        transition-delay: 1.18s; }
       .dom-is-loaded .c-screen_title span:nth-child(4) {
-        transition-delay: 2.24s; }
+        transition-delay: 1.24s; }
       .dom-is-loaded .c-screen_title span:nth-child(5) {
-        transition-delay: 2.3s; }
+        transition-delay: 1.3s; }
       .dom-is-loaded .c-screen_title span:nth-child(6) {
-        transition-delay: 2.36s; }
+        transition-delay: 1.36s; }
       .dom-is-loaded .c-screen_title span:nth-child(7) {
-        transition-delay: 2.42s; }
+        transition-delay: 1.42s; }
       .dom-is-loaded .c-screen_title span:nth-child(8) {
-        transition-delay: 2.48s; }
+        transition-delay: 1.48s; }
       .dom-is-loaded .c-screen_title span:nth-child(9) {
-        transition-delay: 2.54s; }
+        transition-delay: 1.54s; }
       .dom-is-loaded .c-screen_title span:nth-child(10) {
-        transition-delay: 2.6s; }
+        transition-delay: 1.6s; }
     .experiment-is-launched .c-screen_title span:nth-child(odd) {
       transform: translateY(-100vh) rotate(30deg); }
     .experiment-is-launched .c-screen_title span:nth-child(even) {
@@ -204,7 +204,7 @@ body {
       transform: translate(-50%, -50%) rotate(90deg); }
   .dom-is-loaded .c-screen_button {
     transform: none;
-    transition-delay: 2.9s; }
+    transition-delay: 1.9s; }
   .experiment-is-launched .c-screen_button {
     transform: translateY(100vh);
     transition-delay: 0s; }
@@ -266,7 +266,7 @@ body {
   transform: translateY(100vh); }
   .dom-is-loaded .c-screen_text {
     transform: none;
-    transition-delay: 2.8s; }
+    transition-delay: 1.8s; }
   .experiment-is-launched .c-screen_text {
     transform: translateY(100vh);
     transition-delay: 0s; }

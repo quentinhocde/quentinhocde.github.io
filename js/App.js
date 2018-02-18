@@ -25,21 +25,22 @@ class App {
         this.container,
         this.controls;
 
-        this.html = document.getElementsByTagName('html')[0];
 
         this.mouse = {
             x: 0,
             y: 0
         }
 
-        this.player = document.getElementById('js-audio');
-        this.player.crossOrigin = 'Anonymous';
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            this.player = document.getElementById('js-audio');
+            this.player.crossOrigin = 'Anonymous';
 
-
-        setTimeout(() => {
+            this.html = document.getElementsByTagName('html')[0];
             this.html.classList.add('dom-is-loaded');
             this.init();
-        },1000);
+
+        });
         
         // this.gui();
 
