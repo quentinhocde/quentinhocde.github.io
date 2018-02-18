@@ -894,6 +894,10 @@ class App {
                 this.html.classList.add('is-controllable');
             }
 
+            if(this.int === 24) {
+                this.html.classList.remove('is-controllable');
+            }
+
 
             if(this.int === 67) {
                 this.scene.add(this.flower);
@@ -902,9 +906,6 @@ class App {
                 this.scene.remove(this.prism);
                 this.scene.remove(this.crazyPrism);
                 this.scene.remove(this.wiredPrism);
-
-                this.html.classList.remove('is-controllable');
-
 
             }
 

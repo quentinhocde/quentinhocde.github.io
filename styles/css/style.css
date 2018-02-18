@@ -98,10 +98,9 @@ body {
 
 .c-screen_title {
   font-family: 'Oswald';
-  font-size: 160px;
+  font-size: 120px;
   text-transform: uppercase;
   opacity: 0.75;
-  margin-bottom: 45px;
   color: black;
   letter-spacing: 0.01em; }
   .c-screen_title span {
@@ -110,9 +109,9 @@ body {
     min-width: 0.3em;
     transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); }
     .c-screen_title span:nth-child(odd) {
-      transform: translateY(100vh); }
+      transform: translateY(100vh) rotate(30deg); }
     .c-screen_title span:nth-child(even) {
-      transform: translateY(-100vh); }
+      transform: translateY(-100vh) rotate(-30deg); }
     .dom-is-loaded .c-screen_title span {
       transform: none; }
       .dom-is-loaded .c-screen_title span:nth-child(1) {
@@ -136,27 +135,29 @@ body {
       .dom-is-loaded .c-screen_title span:nth-child(10) {
         transition-delay: 1.6s; }
     .experiment-is-launched .c-screen_title span:nth-child(odd) {
-      transform: translateY(100vh); }
+      transform: translateY(-100vh) rotate(30deg); }
     .experiment-is-launched .c-screen_title span:nth-child(even) {
-      transform: translateY(-100vh); }
+      transform: translateY(100vh) rotate(-30deg); }
     .experiment-is-launched .c-screen_title span:nth-child(1) {
-      transition-delay: 0.48s; }
+      transition-delay: 0.04s; }
     .experiment-is-launched .c-screen_title span:nth-child(2) {
-      transition-delay: 0.42s; }
+      transition-delay: 0.08s; }
     .experiment-is-launched .c-screen_title span:nth-child(3) {
-      transition-delay: 0.36s; }
-    .experiment-is-launched .c-screen_title span:nth-child(4) {
-      transition-delay: 0.3s; }
-    .experiment-is-launched .c-screen_title span:nth-child(5) {
-      transition-delay: 0.24s; }
-    .experiment-is-launched .c-screen_title span:nth-child(6) {
-      transition-delay: 0.18s; }
-    .experiment-is-launched .c-screen_title span:nth-child(7) {
       transition-delay: 0.12s; }
+    .experiment-is-launched .c-screen_title span:nth-child(4) {
+      transition-delay: 0.16s; }
+    .experiment-is-launched .c-screen_title span:nth-child(5) {
+      transition-delay: 0.2s; }
+    .experiment-is-launched .c-screen_title span:nth-child(6) {
+      transition-delay: 0.24s; }
+    .experiment-is-launched .c-screen_title span:nth-child(7) {
+      transition-delay: 0.28s; }
     .experiment-is-launched .c-screen_title span:nth-child(8) {
-      transition-delay: 0.06s; }
+      transition-delay: 0.32s; }
     .experiment-is-launched .c-screen_title span:nth-child(9) {
-      transition-delay: 0s; }
+      transition-delay: 0.36s; }
+    .experiment-is-launched .c-screen_title span:nth-child(10) {
+      transition-delay: 0.4s; }
 
 .c-screen_button {
   position: relative;
@@ -169,7 +170,7 @@ body {
   overflow: hidden;
   display: inline-block;
   z-index: 1;
-  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
   transform: translateY(100vh);
   outline: 0; }
   .c-screen_button::before {
@@ -214,20 +215,20 @@ body {
     transition-delay: 0.1s; }
 
 .c-screen_infos {
-  padding: 10px 0;
+  padding: 5px 0;
   font-style: italic;
-  font-size: 12px;
+  font-size: 11px;
   opacity: 0;
   transform: translateY(-100%);
   transition: opacity 0.6s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1); }
-  .dom-is-loaded .c-screen_infos {
+  .c-screen_button:hover + .c-screen_infos {
     transform: none;
     opacity: 1;
-    transition-delay: 3s; }
+    transition-delay: 0.1s; }
   .experiment-is-launched .c-screen_infos {
-    transform: translateY(100%);
-    opacity: 0;
-    transition-delay: 0s; }
+    transform: translateY(100%) !important;
+    opacity: 0 !important;
+    transition-delay: 0s !important; }
 
 .c-control {
   position: absolute;
@@ -241,3 +242,17 @@ body {
   transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1); }
   html.is-controllable .c-control {
     transform: none; }
+
+.c-screen_text {
+  font-family: 'Noto Serif';
+  font-style: italic;
+  margin: 45px 0 45px 0;
+  line-height: 1.4;
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+  transform: translateY(100vh); }
+  .dom-is-loaded .c-screen_text {
+    transform: none;
+    transition-delay: 1.8s; }
+  .experiment-is-launched .c-screen_text {
+    transform: translateY(100vh);
+    transition-delay: 0s; }
