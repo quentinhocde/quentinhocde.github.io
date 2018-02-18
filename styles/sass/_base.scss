@@ -118,7 +118,7 @@ body {
 
 			@for $i from 1 through 10 {
 				&:nth-child(#{$i}){
-					transition-delay: 1 + $i * 0.06s;
+					transition-delay: 2 + $i * 0.06s;
 				}
 			}
 		}
@@ -185,7 +185,7 @@ body {
 
 	.dom-is-loaded & {
 		transform: none;
-		transition-delay: 1.9s;
+		transition-delay: 2.9s;
 	}
 
 	.experiment-is-launched & {
@@ -266,7 +266,7 @@ body {
 	transform: translateY(100vh);
 	.dom-is-loaded & {
 		transform: none;
-		transition-delay: 1.8s;
+		transition-delay: 2.8s;
 	}
 
 	.experiment-is-launched & {
