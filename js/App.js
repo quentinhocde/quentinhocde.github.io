@@ -56,6 +56,9 @@ class App {
         this.camera.lookAt(0,30,0);
         this.scene.add(this.camera);
 
+        this.camera.position.set(15000, 0, 15000);
+        this.camera.zoom = 0.6;
+
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true});
         // this.renderer.setClearColor(0xffffff, 0);
 	    this.renderer.shadowMap.enabled = true;
@@ -164,11 +167,6 @@ class App {
 
         this.time = Date.now();
 
-        this.mouse = {
-            x: 0,
-            y: 0
-        }
-
         this.isLaunched = true;
 
         this.launchScenario();
@@ -193,8 +191,6 @@ class App {
     }
 
     launchScenario() {
-        this.camera.position.set(15000, 0, 15000);
-        this.camera.zoom = 0.6;
 
         TweenMax.to(this.camera,15, {
             zoom: 1,
