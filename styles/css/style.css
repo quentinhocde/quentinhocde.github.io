@@ -56,11 +56,13 @@ table {
 body, html {
   overflow: hidden;
   width: 100vw;
-  height: 100vh;
-  overflow: hidden; }
+  height: 100vh; }
 
 body {
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  opacity: 0; }
+  .dom-is-loaded body {
+    opacity: 1; }
 
 #gl {
   position: absolute;

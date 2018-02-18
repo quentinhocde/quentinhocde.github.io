@@ -16,15 +16,24 @@ $Power2EaseInOut: cubic-bezier(0.770, 0.000, 0.175, 1.000);
 
 }
 
+html {
+
+}
+
 body, html{
 	overflow:hidden;
 	width: 100vw;
 	height: 100vh;
-	overflow: hidden;
 }
 
 body {
 	font-family: 'Roboto', sans-serif;
+
+	opacity: 0;
+
+	.dom-is-loaded &{
+		opacity: 1;
+	}
 
 }
 
