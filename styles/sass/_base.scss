@@ -18,10 +18,14 @@ $Power2EaseInOut: cubic-bezier(0.770, 0.000, 0.175, 1.000);
 
 body, html{
 	overflow:hidden;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
 }
 
 body {
 	font-family: 'Roboto', sans-serif;
+
 }
 
 #gl{
@@ -54,7 +58,10 @@ body {
 		
 		transform: translate(-50%, -50%) scale(0);
 		transition: transform 1s $Power2EaseInOut;
-
+		@media (max-width: 700px) {
+			width: 220vw;
+			height: 220vw;
+		}
 		html.drop & {
 			transform: translate(-50%, -50%) scale(1);
 
@@ -70,7 +77,9 @@ body {
 	transform: translate(-50%, -50%);
 	z-index: 10;
 	text-align: center;
-	width: 1200px;
+	max-width: 1200px;
+	width: 100%;
+	padding: 0 30px;
 }
 
 .c-screen_title {
@@ -119,6 +128,10 @@ body {
 				}
 			}
 		}
+	}
+
+	@media (max-width: 700px) {
+		font-size: 60px;
 	}
 }
 

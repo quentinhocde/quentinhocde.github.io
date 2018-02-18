@@ -54,6 +54,9 @@ table {
     transform: translate(-50%, -50%) scale(1); } }
 
 body, html {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden; }
 
 body {
@@ -84,6 +87,10 @@ body {
     background-color: black;
     transform: translate(-50%, -50%) scale(0);
     transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1); }
+    @media (max-width: 700px) {
+      .circle::before {
+        width: 220vw;
+        height: 220vw; } }
     html.drop .circle::before {
       transform: translate(-50%, -50%) scale(1); }
 
@@ -94,7 +101,9 @@ body {
   transform: translate(-50%, -50%);
   z-index: 10;
   text-align: center;
-  width: 1200px; }
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 30px; }
 
 .c-screen_title {
   font-family: 'Oswald';
@@ -158,6 +167,9 @@ body {
       transition-delay: 0.36s; }
     .experiment-is-launched .c-screen_title span:nth-child(10) {
       transition-delay: 0.4s; }
+  @media (max-width: 700px) {
+    .c-screen_title {
+      font-size: 60px; } }
 
 .c-screen_button {
   position: relative;

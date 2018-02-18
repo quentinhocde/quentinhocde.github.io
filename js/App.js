@@ -33,6 +33,9 @@ class App {
             y: 0
         }
 
+        this.player = document.getElementById('js-audio');
+        this.player.crossOrigin = 'Anonymous';
+
         this.init();
         
         // this.gui();
@@ -719,11 +722,7 @@ class App {
 
 
     audio() {
-        let src = '../audio/intro_return_cut.mp3';
-        this.player = new Audio();
-        this.player.playsinline = true;
-        this.player.crossOrigin = 'Anonymous'
-        this.player.src = src;
+        
 
         // Set up our AnalyserNode utility
         this.analyser = createAnalyser(this.player, {
