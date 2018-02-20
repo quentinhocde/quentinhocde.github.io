@@ -22,8 +22,8 @@ class App {
         this.camera,
         this.renderer,
         this.element,
-        this.container,
-        this.controls;
+        this.container;
+        // this.controls;
 
 
         this.mouse = {
@@ -72,7 +72,7 @@ class App {
 
         this.container.appendChild(this.element);
 
-        this.controls = new THREE.OrbitControls(this.camera, this.element);
+        // this.controls = new THREE.OrbitControls(this.camera, this.element);
 
         this.lights();
 
@@ -127,7 +127,7 @@ class App {
         this.resize();
 
         this.camera.updateProjectionMatrix();
-        this.controls.update();
+        // this.controls.update();
         this.renderer.render(this.scene, this.camera);
 
     }
@@ -794,7 +794,7 @@ class App {
 
 
         this.camera.updateProjectionMatrix();
-        this.controls.update();
+        // this.controls.update();
         this.renderer.render(this.scene, this.camera);
 
     }
