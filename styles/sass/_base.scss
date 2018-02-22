@@ -25,6 +25,7 @@ body, html{
 
 body {
 	font-family: 'Roboto', sans-serif;
+	background-color: white;
 
 	&::before {
 		content:"";
@@ -32,8 +33,8 @@ body {
 		bottom: 0;
 		right: 0;
 		left: 0;
-		top: 50%;
-		background-image: linear-gradient(to bottom, #FFFFFF 100%, #EBEBEB 100%);
+		top: 0;
+		background-image: linear-gradient(to bottom, #FFFFFF 0%, #EBEBEB 100%);
 
 	}
 

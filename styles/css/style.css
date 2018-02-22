@@ -60,15 +60,16 @@ body, html {
   overflow: hidden; }
 
 body {
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  background-color: white; }
   body::before {
     content: "";
     position: absolute;
     bottom: 0;
     right: 0;
     left: 0;
-    top: 50%;
-    background-image: linear-gradient(to bottom, #FFFFFF 100%, #EBEBEB 100%); }
+    top: 0;
+    background-image: linear-gradient(to bottom, #FFFFFF 0%, #EBEBEB 100%); }
 
 #gl {
   position: absolute;
