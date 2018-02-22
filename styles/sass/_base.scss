@@ -16,23 +16,25 @@ $Power2EaseInOut: cubic-bezier(0.770, 0.000, 0.175, 1.000);
 
 }
 
-html {
-
-}
-
 body, html{
 	overflow:hidden;
 	width: 100vw;
 	height: 100vh;
+	overflow: hidden;
 }
 
 body {
 	font-family: 'Roboto', sans-serif;
-	background-color: #ebeef5;
-	opacity: 0;
 
-	.dom-is-loaded &{
-		opacity: 1;
+	&::before {
+		content:"";
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		top: 50%;
+		background-image: linear-gradient(to bottom, #FFFFFF 0%, #EBEBEB 100%);
+
 	}
 
 }

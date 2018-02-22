@@ -56,14 +56,19 @@ table {
 body, html {
   overflow: hidden;
   width: 100vw;
-  height: 100vh; }
+  height: 100vh;
+  overflow: hidden; }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #ebeef5;
-  opacity: 0; }
-  .dom-is-loaded body {
-    opacity: 1; }
+  font-family: 'Roboto', sans-serif; }
+  body::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 50%;
+    background-image: linear-gradient(to bottom, #FFFFFF 0%, #EBEBEB 100%); }
 
 #gl {
   position: absolute;

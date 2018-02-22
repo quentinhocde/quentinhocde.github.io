@@ -22,25 +22,21 @@ class App {
         this.camera,
         this.renderer,
         this.element,
-        this.container;
-        // this.controls;
+        this.container,
+        this.controls;
 
+        this.html = document.getElementsByTagName('html')[0];
+        this.html.classList.add('dom-is-loaded');
 
         this.mouse = {
             x: 0,
             y: 0
         }
 
-        
-        document.addEventListener("DOMContentLoaded", () => {
-            this.player = document.getElementById('js-audio');
-            this.player.crossOrigin = 'Anonymous';
+        this.player = document.getElementById('js-audio');
+        this.player.crossOrigin = 'Anonymous';
 
-            this.html = document.getElementsByTagName('html')[0];
-            this.html.classList.add('dom-is-loaded');
-            this.init();
-
-        });
+        this.init();
         
         // this.gui();
 
@@ -56,9 +52,6 @@ class App {
         this.camera.lookAt(0,30,0);
         this.scene.add(this.camera);
 
-        this.camera.position.set(15000, 0, 15000);
-        this.camera.zoom = 0.6;
-
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true});
         // this.renderer.setClearColor(0xffffff, 0);
 	    this.renderer.shadowMap.enabled = true;
@@ -72,7 +65,7 @@ class App {
 
         this.container.appendChild(this.element);
 
-        // this.controls = new THREE.OrbitControls(this.camera, this.element);
+        this.controls = new THREE.OrbitControls(this.camera, this.element);
 
         this.lights();
 
@@ -127,7 +120,7 @@ class App {
         this.resize();
 
         this.camera.updateProjectionMatrix();
-        // this.controls.update();
+        this.controls.update();
         this.renderer.render(this.scene, this.camera);
 
     }
@@ -167,6 +160,11 @@ class App {
 
         this.time = Date.now();
 
+        this.mouse = {
+            x: 0,
+            y: 0
+        }
+
         this.isLaunched = true;
 
         this.launchScenario();
@@ -191,6 +189,8 @@ class App {
     }
 
     launchScenario() {
+        this.camera.position.set(15000, 0, 15000);
+        this.camera.zoom = 0.6;
 
         TweenMax.to(this.camera,15, {
             zoom: 1,
@@ -794,7 +794,7 @@ class App {
 
 
         this.camera.updateProjectionMatrix();
-        // this.controls.update();
+        this.controls.update();
         this.renderer.render(this.scene, this.camera);
 
     }
